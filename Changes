@@ -1,0 +1,5 @@
+Mon May  3 00:16:06 PDT 2004
+- created distribution directory
+- added a simple test for new()
+- added tests for flush() and delete()
+

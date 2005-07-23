@@ -1,0 +1,10 @@
+CGI::Session::Driver::bitbucket allows module users to test an application which uses CGI::Session but without having to set up any sort of data store at all.  Basically it's so you can test it stateless for syntax etc. without a datastore and without having to comment out all the session code.
+
+This driver is the same as CGI::Session::BitBucket from CGI::Session 3.95 but refitted for CGI::Session 4.0
+
+Example:
+
+$session = new CGI::Session("driver:bitbucket", $sid, {});
+
+$session->flush;  # to the bit bucket!
+
