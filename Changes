@@ -1,5 +1,7 @@
-Mon May  3 00:16:06 PDT 2004
-- created distribution directory
-- added a simple test for new()
-- added tests for flush() and delete()
+Sat Jul 23 10:03:00 MST 2005
+- version 1.04
 
+Sat Sep 13 23:36:44 PDT 2008
+- added tests
+- added POD documentation to methods
+- version 1.05

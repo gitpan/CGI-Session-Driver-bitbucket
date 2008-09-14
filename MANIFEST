@@ -1,7 +1,13 @@
-lib/CGI/Session/Driver/bitbucket.pm
-t/1.t
-Makefile.PL
-README
-INSTALL
+Build.PL
 Changes
-MANIFEST
+configure
+INSTALL
+lib/CGI/Session/Driver/bitbucket.pm
+Makefile.PL
+MANIFEST			This list of files
+README
+sample/fake-datastore.pl
+t/1.t
+t/pod-coverage.t
+t/pod.t
+META.yml

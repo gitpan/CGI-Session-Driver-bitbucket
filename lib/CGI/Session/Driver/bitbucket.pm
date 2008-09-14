@@ -1,64 +1,11 @@
 package CGI::Session::Driver::bitbucket;
 
-use strict;
 use Carp;
 use CGI::Session::Driver;
+use strict;
+use warnings;
 @CGI::Session::Driver::bitbucket::ISA        = qw( CGI::Session::Driver );
-$CGI::Session::Driver::bitbucket::VERSION    = "1.04";
-
-########################
-# Driver methods follow
-########################
-
-
-# the null session does not store data
-sub store {
-    my ($self, $sid, $data) = @_;   
-    if( $self->{Log} ) {
-        carp "bitbucket->store($sid,$data)";
-    }
-    return 1;
-}
-
-
-
-# the null session does not retrieve data
-sub retrieve {
-    my ($self, $sid) = @_;
-    if( $self->{Log} ) {
-        carp "bitbucket->retrieve($sid)";
-    }
-    return 0;
-}
-
-
-# removes the given data and all the disk space associated with it
-sub remove {
-    my ($self, $sid) = @_;
-    if( $self->{Log} ) {
-	carp "bitbucket->remove($sid)";
-    }
-    return 1;    
-}
-
-sub traverse {
-    my ($self, $coderef) = @_;
-	if( $self->{Log} ) {
-		carp "bitbucket->traverse(@_)";
-	}
-	return 1;
-}
-
-# called before object is terminated
-sub DESTROY {
-    my $self = shift;
-	if( $self->{Log} ) {
-		carp "bitbucket->delete()";
-	}
-}
-
-
-1;       
+$CGI::Session::Driver::bitbucket::VERSION    = "1.05";
 
 =pod
 
@@ -69,7 +16,7 @@ CGI::Session::Driver::bitbucket - a module that loses your session data
 =head1 SYNOPSIS
     
     use CGI::Session;
-    $session = new CGI::Session("driver:bitbucket", $sid, {Log=>1});
+    my $session = new CGI::Session("driver:bitbucket", $sid, {Log=>1});
     
 For more options and examples, read the rest of this document and
 consult L<CGI::Session>.
@@ -97,10 +44,88 @@ bitbucket, your session will always be blank.
 Turn this on to see messages in your log about the data you would have saved
 if you were using something other than the bit bucket for storage.
 
+=head1 METHODS
+
+=cut
+
+########################
+# Driver methods follow
+########################
+
+=head2 store
+
+The null session does not store data. This method always returns 1.
+
+=cut
+
+sub store {
+    my ($self, $sid, $data) = @_;   
+    if( $self->{Log} ) {
+        carp "bitbucket->store($sid,$data)";
+    }
+    return 1;
+}
+
+=head2 retrieve
+
+The null session does not retrieve data. This method always returns 0.
+
+=cut
+
+sub retrieve {
+    my ($self, $sid) = @_;
+    if( $self->{Log} ) {
+        carp "bitbucket->retrieve($sid)";
+    }
+    return 0;
+}
+
+=head2 remove
+
+Since the null session does not store data, this method does nothing and
+always returns 1.
+
+=cut
+
+sub remove {
+    my ($self, $sid) = @_;
+    if( $self->{Log} ) {
+	carp "bitbucket->remove($sid)";
+    }
+    return 1;    
+}
+
+=head2 traverse
+
+Does nothing and always returns 1.
+
+=cut
+
+sub traverse {
+    my ($self, $coderef) = @_;
+	if( $self->{Log} ) {
+		carp "bitbucket->traverse(@_)";
+	}
+	return 1;
+}
+
+
+# called before object is terminated
+sub DESTROY {
+    my $self = shift;
+	if( $self->{Log} ) {
+		carp "bitbucket->delete()";
+	}
+}
+
+
+1;       
 
 =head1 COPYRIGHT
 
-CGI::Session::Driver::bitbucket is Copyright (C) 2005 Jonathan Buhacoff.  All rights reserved.
+CGI::Session::Driver::bitbucket is Copyright (C) 2005-2008 Jonathan Buhacoff.  All rights reserved.
+
+=head1 LICENSE
 
 This library is free software and can be modified and distributed under the same
 terms as Perl itself. 
@@ -141,4 +166,3 @@ L<Apache::Session|Apache::Session> - an alternative to CGI::Session
 =back
 
 =cut
-
