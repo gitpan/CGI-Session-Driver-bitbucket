@@ -6,5 +6,6 @@ use ExtUtils::MakeMaker;
         ABSTRACT_FROM   => 'lib/CGI/Session/Driver/bitbucket.pm',
 		MAKEFILE => 'Makefile',
 		PL_FILES => {},
+		PREREQ_PM => { 'CGI::Session' => '4.00' }
     );
 

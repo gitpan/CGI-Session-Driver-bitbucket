@@ -4,6 +4,9 @@ use Module::Build;
     (
      module_name => 'CGI::Session::Driver::bitbucket',
      license => 'perl',
+     requires => {
+     	'CGI::Session' => '4.00'
+     }
     );
   $build->create_build_script;
 

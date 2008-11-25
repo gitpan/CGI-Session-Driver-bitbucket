@@ -5,7 +5,7 @@ use CGI::Session::Driver;
 use strict;
 use warnings;
 @CGI::Session::Driver::bitbucket::ISA        = qw( CGI::Session::Driver );
-$CGI::Session::Driver::bitbucket::VERSION    = "1.05";
+$CGI::Session::Driver::bitbucket::VERSION    = "1.06";
 
 =pod
 
